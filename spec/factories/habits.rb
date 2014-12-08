@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :habit do
-    name "MyString"
+    name "MyHabit"
   end
 
 end

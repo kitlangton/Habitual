@@ -15,5 +15,25 @@ feature "Manage habits" do
 
     expect(page).to have_content "Meditation"
   end
+
+  scenario "user can delete habits" do
+    habit = FactoryGirl.create(:habit)
+    visit root_path
+    click_link "Delete"
+
+    expect(page).not_to have_content habit.name
+  end
+
+  scenario "user can edit habits" do
+    habit = FactoryGirl.create(:habit)
+    visit root_path
+    click_link "Edit"
+
+    fill_in "Name", with: "NewName"
+    click_button "Save Habit"
+    expect(page).not_to have_content habit.name
+    expect(page).to have_content "NewName"
+  end
+
 end
 

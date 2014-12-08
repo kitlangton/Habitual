@@ -14,6 +14,8 @@ gem 'bootstrap-sass', '~> 3.3.1'
 gem 'bootstrap_form'
 gem 'unicorn'
 
+gem 'chartkick', '~> 1.3.2'
+
 group :production do
   gem 'rails_12factor'
   gem 'pg', '~> 0.17.1'

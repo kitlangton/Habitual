@@ -1,4 +1,6 @@
 class HabitsController < ApplicationController
+  before_action :set_habit, only: [:edit, :update, :destroy]
+
   def index
     @habits = Habit.all
   end
@@ -16,7 +18,29 @@ class HabitsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @habit.update(habit_params)
+      redirect_to root_url
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    if @habit.destroy
+      redirect_to root_url
+    end
+
+  end
+
   private
+
+  def set_habit
+    @habit = Habit.find(params[:id])
+  end
 
   def habit_params
     params.require(:habit).permit(:name)

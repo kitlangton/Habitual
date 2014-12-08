@@ -1,3 +1,6 @@
-.habit.col-sm-12.text-center
-  = habit.name
+.habit-card.col-sm-12.text-center
+  strong= habit.name
+  .control
+    = link_to "Edit", edit_habit_path(habit)
+    = link_to "Delete", habit_path(habit), method: :delete, data: { confirm: "Are you sure?" }
 
